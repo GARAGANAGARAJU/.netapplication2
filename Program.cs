@@ -1,35 +1,68 @@
 using System.Diagnostics.Metrics;
+using OpenTelemetry;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+using OpenTelemetry.Logs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Define the service name for OpenTelemetry resources
+const string serviceName = "OpenTelemetryDemo";
+const string serviceVersion = "1.0.0";
+
+// Configure OpenTelemetry Resources
+var resourceBuilder = ResourceBuilder.CreateDefault()
+    .AddService(serviceName: serviceName, serviceVersion: serviceVersion);
+
+// Add logging with OpenTelemetry
+builder.Logging.AddOpenTelemetry(options =>
+{
+    options
+        .SetResourceBuilder(resourceBuilder)
+        .AddOtlpExporter(otlpOptions =>
+        {
+            otlpOptions.Endpoint = new Uri("http://40.71.71.152:4317"); // OTLP endpoint for logs
+            otlpOptions.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.Grpc;
+        })
+        .AddConsoleExporter(); // Export logs to the console
+});
+
+// Add OpenTelemetry services (traces, metrics)
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource => resource
+        .AddService(serviceName, serviceVersion))
+    .WithTracing(tracing => tracing
+        .AddAspNetCoreInstrumentation() // Instrument ASP.NET Core requests
+        .AddHttpClientInstrumentation() // Instrument HTTP requests
+        .AddOtlpExporter(options =>
+        {
+            options.Endpoint = new Uri("http://40.71.71.152:4317"); // OTLP endpoint for traces
+            options.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.Grpc;
+        })
+        .AddConsoleExporter()) // Export traces to the console
+    .WithMetrics(metrics => metrics
+        .AddAspNetCoreInstrumentation() // Instrument ASP.NET Core for metrics
+        .AddMeter("Microsoft.AspNetCore.Hosting")
+        .AddMeter("Microsoft.AspNetCore.Server.Kestrel")
+        .AddPrometheusExporter() // Expose metrics for Prometheus
+        .AddOtlpExporter(options =>
+        {
+            options.Endpoint = new Uri("http://40.71.71.152:4317"); // OTLP endpoint for metrics
+            options.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.Grpc;
+        }));
+
+// Add services to the container
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 // Custom metrics for the application
-var appMeter = new Meter("OpenTelemetryDemo.Metrics", "1.0.0");
+var appMeter = new Meter(serviceName, serviceVersion);
 var requestCounter = appMeter.CreateCounter<int>("app.request.count", description: "Counts the number of requests");
-
-var otel = builder.Services.AddOpenTelemetry();
-
-// Configure OpenTelemetry Resources with the application name
-otel.ConfigureResource(resource => resource
-    .AddService(serviceName: builder.Environment.ApplicationName));
-
-// Add Metrics
-otel.WithMetrics(metrics => metrics
-    .AddAspNetCoreInstrumentation()
-    .AddMeter(appMeter.Name)
-    .AddMeter("Microsoft.AspNetCore.Hosting")
-    .AddMeter("Microsoft.AspNetCore.Server.Kestrel")
-    .AddPrometheusExporter());
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -37,7 +70,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
@@ -48,10 +80,11 @@ app.MapPrometheusScrapingEndpoint();
 // Add a simple endpoint for testing
 app.MapGet("/hello", (ILogger<Program> logger) =>
 {
-    requestCounter.Add(1);
+    requestCounter.Add(1); // Increment the request counter
     logger.LogInformation("Hello endpoint called");
 
     return "Hello, World!";
 });
 
 app.Run();
+
