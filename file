@@ -1,0 +1,229 @@
+[?1h=[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://[::]:8080
+LogRecord.Timestamp:               2024-09-16T04:47:09.0637194Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Now listening on: {address}
+LogRecord.Attributes (Key:Value):
+    address: http://[::]:8080
+    OriginalFormat (a.k.a Body): Now listening on: {address}
+LogRecord.EventId:                 14
+LogRecord.EventName:               ListeningOnAddress
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+LogRecord.Timestamp:               2024-09-16T04:47:09.0860726Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Application started. Press Ctrl+C to shut down.
+LogRecord.Attributes (Key:Value):
+    OriginalFormat (a.k.a Body): Application started. Press Ctrl+C to shut down.
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+LogRecord.Timestamp:               2024-09-16T04:47:09.0876638Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Hosting environment: {EnvName}
+LogRecord.Attributes (Key:Value):
+    EnvName: Production
+    OriginalFormat (a.k.a Body): Hosting environment: {EnvName}
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app
+LogRecord.Timestamp:               2024-09-16T04:47:09.0881990Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Content root path: {ContentRoot}
+LogRecord.Attributes (Key:Value):
+    ContentRoot: /app
+    OriginalFormat (a.k.a Body): Content root path: {ContentRoot}
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+[40m[1m[33mwarn[39m[22m[49m: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+LogRecord.Timestamp:               2024-09-16T04:47:45.2567720Z
+LogRecord.TraceId:                 afb99acdbccf85e7b9a9993a55eee3bb
+LogRecord.SpanId:                  24d1846744b8e1ba
+LogRecord.TraceFlags:              Recorded
+LogRecord.CategoryName:            Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware
+LogRecord.Severity:                Warn
+LogRecord.SeverityText:            Warning
+LogRecord.Body:                    Failed to determine the https port for redirect.
+LogRecord.Attributes (Key:Value):
+    OriginalFormat (a.k.a Body): Failed to determine the https port for redirect.
+LogRecord.EventId:                 3
+LogRecord.EventName:               FailedToDeterminePort
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+LogRecord.Timestamp:               2024-09-16T04:47:45.2648418Z
+[40m[32minfo[39m[22m[49m: Program[0]
+      Hello endpoint called
+LogRecord.TraceId:                 afb99acdbccf85e7b9a9993a55eee3bb
+LogRecord.SpanId:                  24d1846744b8e1ba
+LogRecord.TraceFlags:              Recorded
+LogRecord.CategoryName:            Program
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Hello endpoint called
+LogRecord.Attributes (Key:Value):
+    OriginalFormat (a.k.a Body): Hello endpoint called
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+Activity.TraceId:            afb99acdbccf85e7b9a9993a55eee3bb
+Activity.SpanId:             24d1846744b8e1ba
+Activity.TraceFlags:         Recorded
+Activity.ActivitySourceName: Microsoft.AspNetCore
+Activity.DisplayName:        GET /hello
+Activity.Kind:               Server
+Activity.StartTime:          2024-09-16T04:47:45.2236659Z
+Activity.Duration:           00:00:00.0548842
+Activity.Tags:
+    net.host.name: 172.173.135.32
+    net.host.port: 8080
+    http.method: GET
+    http.scheme: http
+    http.target: /hello
+    http.url: http://172.173.135.32:8080/hello
+    http.flavor: 1.1
+    http.user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0
+    http.route: /hello
+    http.status_code: 200
+Resource associated with Activity:
+    service.name: OpenTelemetryDemo
+    service.namespace: 1.0.0
+    service.instance.id: fb5d24f3-3d35-419d-916c-34d6c0001e1d
+    telemetry.sdk.name: opentelemetry
+    telemetry.sdk.language: dotnet
+    telemetry.sdk.version: 1.6.0
+
+Activity.TraceId:            37ea7940b3e6643c1bb18a339f243ba6
+Activity.SpanId:             e7ccaed4f12a1837
+Activity.TraceFlags:         Recorded
+Activity.ActivitySourceName: Microsoft.AspNetCore
+Activity.DisplayName:        GET
+Activity.Kind:               Server
+Activity.StartTime:          2024-09-16T04:47:45.6349246Z
+Activity.Duration:           00:00:00.0044847
+Activity.Tags:
+    net.host.name: 172.173.135.32
+    net.host.port: 8080
+    http.method: GET
+    http.scheme: http
+    http.target: /favicon.ico
+    http.url: http://172.173.135.32:8080/favicon.ico
+    http.flavor: 1.1
+    http.user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0
+    http.status_code: 404
+Resource associated with Activity:
+    service.name: OpenTelemetryDemo
+    service.namespace: 1.0.0
+    service.instance.id: fb5d24f3-3d35-419d-916c-34d6c0001e1d
+    telemetry.sdk.name: opentelemetry
+    telemetry.sdk.language: dotnet
+    telemetry.sdk.version: 1.6.0
+
+LogRecord.Timestamp:               2024-09-16T04:47:47.8443121Z
+LogRecord.TraceId:                 83df2509a588b8cd89ff4c96209574e0
+LogRecord.SpanId:                  8d6f345ed8eac43b
+LogRecord.TraceFlags:              Recorded
+LogRecord.CategoryName:            Program
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Hello endpoint called
+LogRecord.Attributes (Key:Value):
+    OriginalFormat (a.k.a Body): Hello endpoint called
+
+Resource associated with LogRecord:
+service.name: OpenTelemetryDemo
+service.namespace: 1.0.0
+service.instance.id: bc47cb18-04d3-400a-8a68-0e17543ddd3d
+service.version: 1.0.0
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.6.0
+
+[40m[32minfo[39m[22m[49m: Program[0]
+      Hello endpoint called
+Activity.TraceId:            83df2509a588b8cd89ff4c96209574e0
+Activity.SpanId:             8d6f345ed8eac43b
+Activity.TraceFlags:         Recorded
+Activity.ActivitySourceName: Microsoft.AspNetCore
+Activity.DisplayName:        GET /hello
+Activity.Kind:               Server
+Activity.StartTime:          2024-09-16T04:47:47.8428477Z
+Activity.Duration:           00:00:00.0033860
+Activity.Tags:
+    net.host.name: 172.173.135.32
+    net.host.port: 8080
+    http.method: GET
+    http.scheme: http
+    http.target: /hello
+    http.url: http://172.173.135.32:8080/hello
+    http.flavor: 1.1
+    http.user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0
+    http.route: /hello
+    http.status_code: 200
+Resource associated with Activity:
+    service.name: OpenTelemetryDemo
+    service.namespace: 1.0.0
+    service.instance.id: fb5d24f3-3d35-419d-916c-34d6c0001e1d
+    telemetry.sdk.name: opentelemetry
+    telemetry.sdk.language: dotnet
+    telemetry.sdk.version: 1.6.0
+

@@ -1513,19 +1513,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\apm\\OpenTelemetryDemo\\OpenTelemetryDemo.csproj",
+      "projectUniqueName": "/root/.netapplication2/OpenTelemetryDemo.csproj",
       "projectName": "OpenTelemetryDemo",
-      "projectPath": "P:\\apm\\OpenTelemetryDemo\\OpenTelemetryDemo.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "P:\\apm\\OpenTelemetryDemo\\obj\\",
+      "projectPath": "/root/.netapplication2/OpenTelemetryDemo.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/root/.netapplication2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1543,11 +1543,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1606,7 +1601,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

@@ -1,0 +1,23 @@
+version: "3.4"
+
+services:
+  dotnet-app:
+    build:
+      context: .  # Path to your Dockerfile directory
+    ports:
+      - "8080:8080"  # Application port
+      - "4317:4317"  # OTLP gRPC endpoint for traces
+      - "4318:4318"  # OTLP HTTP endpoint for metrics and logs
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - OTEL_SERVICE_NAME=OpenTelemetryDemo
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_METRICS_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=otlp
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://40.71.71.152:4317  # Replace with your OTLP collector endpoint
+      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+      - OTEL_DOTNET_AUTO_TRACES_CONSOLE_EXPORTER_ENABLED=true
+      - OTEL_DOTNET_AUTO_METRICS_CONSOLE_EXPORTER_ENABLED=true
+      - OTEL_DOTNET_AUTO_LOGS_CONSOLE_EXPORTER_ENABLED=true
+    command: "dotnet run"
+

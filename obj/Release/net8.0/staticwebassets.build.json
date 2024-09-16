@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "K3Aie0iXtSe5LUSbJLG36cQ7ZiU6uw9uNC98wXwcqk0=",
+  "Source": "OpenTelemetryDemo",
+  "BasePath": "_content/OpenTelemetryDemo",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
